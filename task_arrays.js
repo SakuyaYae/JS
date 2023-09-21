@@ -8,7 +8,6 @@ var item;
 var chose;
 var item_name;
 var index;
-var item_temp;
 
 function print(input) {
   console.log(input);
@@ -35,7 +34,6 @@ function remove_from_bottom() {
 }
 
 function remove_based_on_index() {
-
   if (to_do_list.length > 0) {
     print((to_do_list.length - 1) + ": is the max index");
   }
@@ -84,19 +82,16 @@ function move_to_bottom() {
   }
 }
 
-
 function move_down() {
   item_name = prompt("type name of item to move: ");
-  index = to_do_list.indexOf(name_of_item);
+  index = to_do_list.indexOf(name_item);
   if (index < 0) {
     print("no item found");
   }
   else {
     if (index != 0) {
       item = to_do_list.splice(index, 1);
-      item_temp = to_do_list.splice(index - 1, 1);
       to_do_list.splice(index - 1, 0, item[0]);
-      to_do_list.splice(index, 0, item_temp);
     }
     else {
       print("Error: index is start index");
@@ -107,16 +102,14 @@ function move_down() {
 
 function move_up() {
   item_name = prompt("type name of item to move: ");
-  index = to_do_list.indexOf(name_of_item);
+  index = to_do_list.indexOf(name_item);
   if (index < 0) {
     print("no item found");
   }
   else {
     if (index != to_do_list.length - 1) {
       item = to_do_list.splice(index, 1);
-      item_temp = to_do_list.splice(index + 1, 1);
       to_do_list.splice(index + 1, 0, item[0]);
-      to_do_list.splice(index, 0, item_temp);
     }
     else {
       print("Error: index is the last index of list")

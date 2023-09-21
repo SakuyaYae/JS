@@ -181,19 +181,19 @@ while (check) {
       mulitples();
       break;
 
-    case 6:
+    case "6":
       mulitples();
       break;
 
-    case 7:
+    case "7":
       num_multi_of_three();
       break;
 
-    case 8:
+    case "8":
       compare_num_for_largest();
       break;
 
-    case 9:
+    case "9":
       compare_untill_zero();
       break;
 
