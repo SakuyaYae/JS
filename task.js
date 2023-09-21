@@ -1,4 +1,8 @@
 const prompt = require("prompt-sync")({ sigint: true });
+const menu = "1 numbers whit for.\n 2 numbers whit while.\n 3 odd number betwhin 0-20. \n 4 even num to choen num. \n 5 Muliplier. \n 6 Multiplier. \n 7 number of multples of three. \n 8 copare numbers for largest. \n 9 compare untill zero and exit \n e, exit, Exit quit program.\n"
+
+var check = true;
+var chose;
 
 function print(input) {
   console.log(input);
@@ -11,6 +15,7 @@ function check_NaN(value_1, value_2 = 0) {
   }
   return false;
 }
+
 function numbers_for() {
   var number = parseFloat(prompt("Type a number: "));
   if (check_NaN(number)) {
@@ -89,7 +94,6 @@ function mulitples() {
   }
 }
 
-
 function num_multi_of_three() {
   var count = parseInt(prompt("Type a count: "));
 
@@ -152,11 +156,6 @@ function compare_untill_zero() {
   print(largest);
 }
 
-var check = true;
-var chose;
-
-var menu = "1 numbers whit for.\n 2 numbers whit while.\n 3 odd number betwhin 0-20. \n 4 even num to choen num. \n 5 Muliplier. \n 6 Multiplier. \n 7 number of multples of three. \n 8 copare numbers for largest. \n 9 compare untill zero and exit \n e, exit, Exit quit program.\n"
-
 while (check) {
   print(menu);
   chose = prompt("type your chose: ");
@@ -164,36 +163,47 @@ while (check) {
   switch (chose.trim()) {
     case "1":
       numbers_for();
+      break;
 
     case "2":
       numbers_while();
+      break;
 
     case "3":
       odd_numbers_betwhin();
+      break;
 
     case "4":
       even_num_to_choen_num();
+      break;
 
     case "5":
       mulitples();
+      break;
 
     case 6:
       mulitples();
+      break;
 
     case 7:
       num_multi_of_three();
+      break;
 
     case 8:
       compare_num_for_largest();
+      break;
 
     case 9:
       compare_untill_zero();
+      break;
 
     case "exit", "Exit", "e":
       check = false;
+      break;
 
     default:
       print(menu);
+      break;
 
   }
 }
