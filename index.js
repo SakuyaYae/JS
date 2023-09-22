@@ -1,30 +1,30 @@
-function print(input) {
-  console.log(input);
-  console.log();
-};
-
-var sakura = null;
-var sakuya = "";
-
-if (sakura > 10) {
-  print(`${sakura} is greater than 10`);
-}
-else if (sakura == null || sakura == "") {
-  print("sakura is null or empty");
-}
-else {
-  print(`${sakura} is not greater than 10`);
+const player1 = {
+  name: "Sakuya",
+  level: 100,
+  trait: "Summoner"
 }
 
-switch (sakuya) {
-  case "":
-    print("sakuya is empty")
-    break;
+const player2 = {
+  name: "Saya",
+  level: 85,
+  trait: "Warrior"
+}
 
-  case null:
-    print("sakuya is null");
-    break;
+const player3 = {
+  name: "Yui",
+  level: 79,
+  trait: "Paladin"
+}
 
-  default:
-    print("sakuya holds some value");
+const player4 = {
+  name: "Shiro",
+  level: 94,
+  trait: "Falcon knight"
+}
+
+const player_list = [player1, player2, player3, player4];
+
+for (var i = 0; i < player_list.length; i++) {
+  console.log("Player Name: " + player_list[i].name + "\n" + "Player level: " + player_list[i].level + "\n" + "player class: " + player_list[i].trait + "\n");
+
 }
