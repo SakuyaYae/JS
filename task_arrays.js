@@ -8,6 +8,7 @@ var item;
 var chose;
 var item_name;
 var index;
+var removed;
 
 function print(input) {
   console.log(input);
@@ -20,17 +21,24 @@ function print_to_do_list() {
   }
 }
 
+function print_done_list() {
+  for (var i = 0; i < done_list.length; i++) {
+    print(done_list[i]);
+  }
+}
 function add_item() {
   var item_to_add = prompt("type item to add to the list: ");
   to_do_list.push(item_to_add);
 }
 
 function remove_from_top() {
-  to_do_list.shift();
+  removed = to_do_list.shift();
+  done_list.push(removed[0]);
 }
 
 function remove_from_bottom() {
-  to_do_list.pop();
+  removed = to_do_list.pop();
+  done_list.push(removed[0]);
 }
 
 function remove_based_on_index() {
@@ -44,7 +52,8 @@ function remove_based_on_index() {
   if (isNaN(index_to_remove)) {
     return;
   }
-  to_do_list.splice(index_to_remove, 1);
+  removed = to_do_list.splice(index_to_remove, 1);
+  done_list.push(removed[0]);
 }
 
 function remove_based_on_name() {
@@ -54,7 +63,8 @@ function remove_based_on_name() {
     print("no item found");
   }
   else {
-    to_do_list.splice(index, 1);
+    removed = to_do_list.splice(index, 1);
+    done_list.push(removed[0]);
   }
 }
 
@@ -84,7 +94,7 @@ function move_to_bottom() {
 
 function move_down() {
   item_name = prompt("type name of item to move: ");
-  index = to_do_list.indexOf(name_item);
+  index = to_do_list.indexOf(item_name);
   if (index < 0) {
     print("no item found");
   }
@@ -95,14 +105,13 @@ function move_down() {
     }
     else {
       print("Error: index is start index");
-      return;
     }
   }
 }
 
 function move_up() {
   item_name = prompt("type name of item to move: ");
-  index = to_do_list.indexOf(name_item);
+  index = to_do_list.indexOf(item_name);
   if (index < 0) {
     print("no item found");
   }
@@ -112,8 +121,7 @@ function move_up() {
       to_do_list.splice(index + 1, 0, item[0]);
     }
     else {
-      print("Error: index is the last index of list")
-      return;
+      print("Error: index is the last index of list");
     }
   }
 }
@@ -125,6 +133,7 @@ while (check) {
   switch (chose.trim()) {
     case "1":
       print_to_do_list();
+      print_done_list();
       break;
 
     case "2":
