@@ -1,0 +1,12 @@
+[
+  {
+    "player": {
+      "name": "Sakuya",
+      "level": 45,
+      "inv": {
+        "item_name": "yumi",
+        "atk": 200
+      }
+    }
+  }
+]
