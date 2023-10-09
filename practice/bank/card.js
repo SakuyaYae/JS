@@ -11,11 +11,10 @@ export default class Card {
 
   comparePin(pinCheck) {
     if (pinCheck === this.pin) {
-      return "Valid pin code.";
+      return true;
     }
-
     else {
-      return "Wrong pin code. Try again";
+      return false;
     }
   }
 

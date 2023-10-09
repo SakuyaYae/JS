@@ -14,22 +14,27 @@ export default class Bank {
   }
 
   insertCard(card) {
-    this.cardInserted = true;
+    this.cardInserted = card;
     return "Card inserted"
   }
 
   enterPin(pinCode) {
-    return card.comparePin(pinCode);
+    if (card.comparePin(pinCode)) {
+      return "Valid pin code.";
+    }
+    else {
+      return "Wrong pin code. Try again.";
+    }
   }
 
   withdrawMoney(amount) {
     if (amount <= this.machineBalance) {
       this.machineBalance -= amount;
       card.cardBalance += amount;
-      return amount + " withdrawn.";
+      return amount + "kr withdrawn.";
     }
     else {
-      return "Amount is greater than the balance in machine. balance in machine: " + this.machineBalance;
+      return "Amount is greater than the balance in machine. balance in machine: " + this.machineBalance + "kr";
     }
   }
 
@@ -37,8 +42,8 @@ export default class Bank {
     return "You have: " + card.getCardBalance() + " on your card.";
   }
 
-  ejectCard(card) {
-    this.cardInserted = false;
-    return " card removed. Have a wonderful day.\n"
+  ejectCard() {
+    this.cardInserted = "ejected";
+    return card;
   }
 }
