@@ -1,12 +1,15 @@
+import Account from "./account.js";
+
+const account = new Account();
+
 export default class Card {
-  cardBalance = 15000;
   pin = "0123";
 
   constructor() {
   }
 
   getCardBalance() {
-    return this.cardBalance;
+    return account.getBalance();
   }
 
   comparePin(pinCheck) {
